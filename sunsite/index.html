@@ -40,6 +40,7 @@
           <li><a href="#portfolio">דוגמאות</a></li>
           <li><a href="#faq">שאלות נפוצות</a></li>
           <li><a href="#contact">צור קשר</a></li>
+          <li class="nav-cta"><a href="#" id="open-onboarding-btn" class="nav-highlight">מלא את פרטי האתר שלך כעת!</a></li>
         </ul>
       </nav>
     </div>
@@ -127,13 +128,13 @@
         
         <div class="portfolio-grid">
           <div class="portfolio-item fade-in">
-            <img src="assets/portfolio1.png" alt="אתר לבית קפה" />
+            <img src="assets/new_portfolio1.jpg" alt="אתר לגילוי בחצר" />
           </div>
           <div class="portfolio-item fade-in">
-            <img src="assets/portfolio2.png" alt="אתר לאינסטלטור" />
+            <img src="assets/new_portfolio2.jpg" alt="אתר למסעדת טיבוליס" />
           </div>
           <div class="portfolio-item fade-in">
-            <img src="assets/portfolio3.png" alt="אתר למטפל" />
+            <img src="assets/new_portfolio3.png" alt="אתר לאורי תותים" />
           </div>
         </div>
       </div>
@@ -216,7 +217,162 @@
     </section>
   </main>
 
-  <!-- 7. Footer -->
+  <!-- 7. Onboarding Modal -->
+  <div id="onboarding-modal" class="modal-overlay">
+    <div class="modal-content fade-in">
+      <button id="close-onboarding-btn" class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2 class="section-title" style="font-size: 2rem; margin-bottom: 0.5rem;">בואו נקים את האתר שלכם!</h2>
+        <p>מלאו את הפרטים ונחזור אליכם בהקדם.</p>
+      </div>
+      
+      <div class="progress-container">
+        <ul class="progressbar">
+          <li class="active">פרטי העסק</li>
+          <li>תוכן</li>
+          <li>סגנון וצבעים</li>
+        </ul>
+      </div>
+      
+      <div class="form-container">
+        <form id="onboarding-form" action="https://formspree.io/f/sunsite1010@gmail.com" method="POST">
+          <!-- Step 1 -->
+          <div class="form-step active" id="step-1">
+            <h3>שלב 1: קצת עליכם - פרטי העסק</h3>
+            
+            <div class="form-group">
+              <label for="business-name">שם העסק המלא (בעברית ובאנגלית) *</label>
+              <input type="text" id="business-name" name="business_name" required placeholder="דוגמה: SunSite - סאן סייט">
+            </div>
+            
+            <div class="form-group">
+              <label for="business-address">כתובת העסק (לצורך הצגה במפה)</label>
+              <input type="text" id="business-address" name="business_address" placeholder="דוגמה: הגליל 1, תל אביב">
+            </div>
+            
+            <div class="form-group">
+              <label for="operating-hours">ימים ושעות פעילות</label>
+              <input type="text" id="operating-hours" name="operating_hours" placeholder="דוגמה: א'-ה' 09:00-18:00, ו' 09:00-14:00">
+            </div>
+            
+            <div class="form-group">
+              <label for="whatsapp-number">מספר טלפון ליצירת קשר מהאתר (WhatsApp) *</label>
+              <input type="tel" id="whatsapp-number" name="whatsapp_number" required placeholder="דוגמה: 050-1234567">
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group flex-1">
+                <label for="instagram-link">חשבון אינסטגרם (בפורמט @ או לינק)</label>
+                <input type="text" id="instagram-link" name="instagram_link" placeholder="@sunsite">
+              </div>
+              
+              <div class="form-group flex-1">
+                <label for="facebook-link">חשבון פייסבוק (בפורמט @ או לינק)</label>
+                <input type="text" id="facebook-link" name="facebook_link" placeholder="כתובת לפייסבוק העסקי">
+              </div>
+            </div>
+            
+            <div class="form-actions right">
+              <button type="button" class="btn btn-primary next-step-btn">הבא <i class="fa-solid fa-arrow-left"></i></button>
+            </div>
+          </div>
+          
+          <!-- Step 2 -->
+          <div class="form-step" id="step-2">
+            <h3>שלב 2: תוכן - הלב של האתר</h3>
+            
+            <div class="form-group">
+              <label for="business-desc">במשפט אחד: מה העסק עושה? *</label>
+              <input type="text" id="business-desc" name="business_desc" required placeholder="מתמחים בבניית אתרים מהירים ונגישים לעסקים קטנים">
+            </div>
+            
+            <div class="form-group">
+              <label for="target-audience">מי קהל היעד של העסק?</label>
+              <input type="text" id="target-audience" name="target_audience" placeholder="בעלי עסקים, יזמים, עצמאיים">
+            </div>
+            
+            <div class="form-group">
+              <label for="strengths">מה 3 נקודות החוזקה של העסק?</label>
+              <textarea id="strengths" name="strengths" rows="3" placeholder="1. שירות מהיר&#10;2. מחיר משתלם&#10;3. יחס אישי"></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="about-story">מי אנחנו: סיפור אישי קצר (לדף ה-About)</label>
+              <textarea id="about-story" name="about_story" rows="4" placeholder="ספרו לנו על עצמכם ועל הדרך של העסק..."></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label>מה הפעולות שתרצו שלקוח יבצע באתר?</label>
+              <div class="checkbox-grid">
+                <label class="checkbox-btn"><input type="checkbox" name="desired_actions[]" value="whatsapp">חיבור לוואטסאפ</label>
+                <label class="checkbox-btn"><input type="checkbox" name="desired_actions[]" value="form">שליחת טופס</label>
+                <label class="checkbox-btn"><input type="checkbox" name="desired_actions[]" value="waze">ניווט ב-Waze</label>
+                <label class="checkbox-btn"><input type="checkbox" name="desired_actions[]" value="gallery">צפייה בגלריה</label>
+                <label class="checkbox-btn"><input type="checkbox" name="desired_actions[]" value="other">אחר</label>
+              </div>
+            </div>
+            
+            <div class="form-actions split">
+              <button type="button" class="btn btn-secondary prev-step-btn"><i class="fa-solid fa-arrow-right"></i> הקודם</button>
+              <button type="button" class="btn btn-primary next-step-btn">הבא <i class="fa-solid fa-arrow-left"></i></button>
+            </div>
+          </div>
+          
+          <!-- Step 3 -->
+          <div class="form-step" id="step-3">
+            <h3>שלב 3: סגנון וצבעים</h3>
+            
+            <div class="form-group">
+              <label>האם יש לכם לוגו לעסק?</label>
+              <div class="radio-group" style="display: flex; gap: 15px;">
+                <label class="radio-btn"><input type="radio" name="has_logo" value="yes" checked> כן</label>
+                <label class="radio-btn"><input type="radio" name="has_logo" value="no"> לא</label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>בחרו צבעים מועדפים</label>
+              <div class="checkbox-grid colors-grid">
+                <label class="checkbox-btn"><input type="checkbox" name="preferred_colors[]" value="white"> לבן</label>
+                <label class="checkbox-btn"><input type="checkbox" name="preferred_colors[]" value="black"> שחור</label>
+                <label class="checkbox-btn"><input type="checkbox" name="preferred_colors[]" value="blue"> כחול</label>
+                <label class="checkbox-btn"><input type="checkbox" name="preferred_colors[]" value="lightblue"> תכלת</label>
+                <label class="checkbox-btn"><input type="checkbox" name="preferred_colors[]" value="purple"> סגול</label>
+                <label class="checkbox-btn"><input type="checkbox" name="preferred_colors[]" value="red"> אדום</label>
+                <label class="checkbox-btn"><input type="checkbox" name="preferred_colors[]" value="pink"> ורוד</label>
+                <label class="checkbox-btn"><input type="checkbox" name="preferred_colors[]" value="orange"> כתום</label>
+                <label class="checkbox-btn"><input type="checkbox" name="preferred_colors[]" value="yellow"> צהוב</label>
+                <label class="checkbox-btn"><input type="checkbox" name="preferred_colors[]" value="green"> ירוק</label>
+                <label class="checkbox-btn"><input type="checkbox" name="preferred_colors[]" value="gray"> אפור</label>
+                <label class="checkbox-btn"><input type="checkbox" name="preferred_colors[]" value="other"> אחר</label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="additional-info">האם יש דברים נוספים שחשוב שנכיר?</label>
+              <textarea id="additional-info" name="additional_info" rows="3" placeholder="כל דבר אחר שחשוב שנדע..."></textarea>
+            </div>
+            
+            <div class="form-actions split">
+              <button type="button" class="btn btn-secondary prev-step-btn"><i class="fa-solid fa-arrow-right"></i> הקודם</button>
+              <button type="submit" class="btn btn-primary submit-btn">שליחה למערכת SunSite <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+          </div>
+          
+        </form>
+        
+        <!-- Success Message -->
+        <div id="success-message" class="success-message hidden">
+          <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+          <h3>תודה!</h3>
+          <p>קיבלנו את הפרטים, נחזור אליכם תוך 3 ימי עסקים.</p>
+          <button type="button" class="btn btn-primary" id="close-success-btn" style="margin-top: 20px;">סגירה</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Footer -->
   <footer>
     <div class="container">
       <p>SunSite &copy; 2026 - כל הזכויות שמורות. נבנה באהבה על ידי אלון וארז מהעוטף.</p>
@@ -279,6 +435,147 @@
     
     fadeElements.forEach(el => {
       appearOnScroll.observe(el);
+    });
+
+    // Onboarding Modal Logic
+    const modal = document.getElementById('onboarding-modal');
+    const openBtn = document.getElementById('open-onboarding-btn');
+    const closeBtn = document.getElementById('close-onboarding-btn');
+    const form = document.getElementById('onboarding-form');
+    const successMessage = document.getElementById('success-message');
+    const closeSuccessBtn = document.getElementById('close-success-btn');
+    
+    const steps = document.querySelectorAll('.form-step');
+    const progressItems = document.querySelectorAll('.progressbar li');
+    const nextBtns = document.querySelectorAll('.next-step-btn');
+    const prevBtns = document.querySelectorAll('.prev-step-btn');
+    
+    let currentStep = 0;
+    
+    function showStep(stepIndex) {
+      steps.forEach((step, index) => {
+        step.classList.toggle('active', index === stepIndex);
+      });
+      
+      progressItems.forEach((item, index) => {
+        if (index < stepIndex) {
+          item.classList.add('active');
+          item.classList.add('completed');
+        } else if (index === stepIndex) {
+          item.classList.add('active');
+          item.classList.remove('completed');
+        } else {
+          item.classList.remove('active');
+          item.classList.remove('completed');
+        }
+      });
+    }
+    
+    nextBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Simple validation check before proceeding
+        const inputs = steps[currentStep].querySelectorAll('input[required], textarea[required]');
+        let valid = true;
+        inputs.forEach(input => {
+          if (!input.checkValidity()) {
+            input.reportValidity();
+            valid = false;
+          }
+        });
+        
+        if (valid && currentStep < steps.length - 1) {
+          currentStep++;
+          showStep(currentStep);
+          // Scroll to top of modal safely
+          const modalContent = modal.querySelector('.modal-content');
+          if (modalContent) modalContent.scrollTop = 0;
+        }
+      });
+    });
+    
+    prevBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (currentStep > 0) {
+          currentStep--;
+          showStep(currentStep);
+          // Scroll to top of modal safely
+          const modalContent = modal.querySelector('.modal-content');
+          if (modalContent) modalContent.scrollTop = 0;
+        }
+      });
+    });
+    
+    openBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden'; // prevent bg body scrolling
+      if (navList.classList.contains('active')) {
+        navList.classList.remove('active');
+      }
+    });
+    
+    const closeModal = () => {
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+      
+      // Optional: reset form and state upon close
+      // setTimeout(() => {
+      //   form.reset();
+      //   successMessage.classList.add('hidden');
+      //   form.style.display = 'block';
+      //   currentStep = 0;
+      //   showStep(0);
+      // }, 300);
+    };
+    
+    closeBtn.addEventListener('click', closeModal);
+    closeSuccessBtn.addEventListener('click', closeModal);
+    
+    modal.addEventListener('click', (e) => {
+      // Return if click is inside the modal content
+      if (e.target.closest('.modal-content')) return;
+      closeModal();
+    });
+    
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const submitBtn = form.querySelector('.submit-btn');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> במעקב...';
+      submitBtn.disabled = true;
+      
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          form.style.display = 'none';
+          successMessage.classList.remove('hidden');
+          
+          form.reset();
+          currentStep = 0;
+          showStep(currentStep);
+          
+          setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+          }, 500);
+        } else {
+          alert('אירעה שגיאה. אנא נסו שוב מאוחר יותר.');
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }
+      } catch (error) {
+        alert('אירעה שגיאה. אנא נסו שוב מאוחר יותר.');
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
     });
   </script>
 </body>
